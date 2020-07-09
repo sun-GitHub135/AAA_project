@@ -8,6 +8,10 @@ package com.aaa.sun.status;
  *      枚举是在封装的时候，规定的一些永远不会改变的状态值或数据
  */
 public enum LoginStatus {
+    /**
+     * 200
+     * 登陆成功
+     */
     LOGIN_SUCCESS("200","登录成功"),
     LOGIN_FAILED("400","登录失败，系统异常"),
     USER_EXIST("201","用户已存在"),
