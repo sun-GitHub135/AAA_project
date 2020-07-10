@@ -1,6 +1,7 @@
 package com.aaa.sun.base;
 
 import static com.aaa.sun.status.LoginStatus.*;
+import static com.aaa.sun.status.OperationStatus.*;
 
 /**
  * @author sun
@@ -33,9 +34,43 @@ public class BaseController {
         return resultData;
     }
 
+
     /**
      * @Author sun
-     * ????
+     * @Description
+     *      登录成功
+     *            自定义返回消息
+     * @Date 21:38 2020/7/10
+     * @Param [msg]
+     * @return com.aaa.sun.base.ResultData
+     */
+    protected ResultData loginSuccess(String msg) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(LOGIN_SUCCESS.getCode());
+        resultData.setMsg(msg);
+        return resultData;
+    }
+
+
+    /**
+     * @Author sun
+     * @Description
+     * 登录成功
+     *            返回数据信息，使用系统消息
+     * @Date 21:38 2020/7/10
+     * @Param [data]
+     * @return com.aaa.sun.base.ResultData
+     */
+    protected ResultData loginSuccess(Object data) {
+        ResultData resultData = new ResultData();
+        resultData.setCode(LOGIN_SUCCESS.getCode());
+        resultData.setMsg(LOGIN_SUCCESS.getMsg());
+        resultData.setData(data);
+        return resultData;
+    }
+
+    /**
+     * @Author sun
      * @Description  登录成功，自定义返回消息（重载）
      *              返回数据信息，使用系统信息
      * @Date 17:08 2020/7/8
@@ -78,57 +113,68 @@ public class BaseController {
         resultData.setDetail(detail);
         return resultData;
     }
-    // TODO
 
     /**
-     * 用户名已存在
-     * 系统消息
-     * @return
+     * @Author sun
+     * @Description
+     *         操作成功，返回系统消息
+     * @Date 21:40 2020/7/10
+     * @Param []
+     * @return com.aaa.sun.base.ResultData
      */
-    protected  ResultData  loginExist(){
+    protected ResultData operationSuccess() {
         ResultData resultData = new ResultData();
-        resultData.setCode(USER_EXIST.getCode());
-        resultData.setMsg(USER_EXIST.getMsg());
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
         return resultData;
     }
 
 
     /**
-     * 用户名不存在
-     * 系统消息
-     * @return
+     * @Author sun
+     * @Description
+     *          操作成功，返回系统消息
+     * @Date 21:41 2020/7/10
+     * @Param [data]
+     * @return com.aaa.sun.base.ResultData
      */
-    protected ResultData userNotExist(){
+    protected ResultData operationSuccess(Object data) {
         ResultData resultData = new ResultData();
-        resultData.setCode(USER_NOT_WRONG.getCode());
-        resultData.setMsg(USER_NOT_WRONG.getMsg());
-        return  resultData;
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
+        resultData.setData(data);
+        return resultData;
     }
-
 
     /**
-     * 密码错误
-     * 系统消息
-     * @return
+     * @Author sun
+     * @Description
+     *          操作失败，返回系统消息
+     * @Date 21:43 2020/7/10
+     * @Param []
+     * @return com.aaa.sun.base.ResultData
      */
-    protected  ResultData passwordWrong(){
+    protected ResultData operationFailed() {
         ResultData resultData = new ResultData();
-        resultData.setCode(PASSWORD_WRONG.getCode());
-        resultData.setMsg(PASSWORD_WRONG.getCode());
-        return  resultData;
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(FAILED.getMsg());
+        return resultData;
     }
-
 
     /**
-     * 用户退出异常
-     * 系统消息
-     * @return
+     * @Author sun
+     * @Description
+     *      操作失败，返回系统消息
+     * @Date 21:43 2020/7/10
+     * @Param [msg]
+     * @return com.aaa.sun.base.ResultData
      */
-    protected  ResultData loginWrong(){
+    protected ResultData operationFailed(String msg) {
         ResultData resultData = new ResultData();
-        resultData.setCode(LOGOUT_WRONG.getCode());
-        resultData.setMsg(LOGOUT_WRONG.getMsg());
-        return  resultData;
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(msg);
+        return resultData;
     }
 
+    // TODO
 }

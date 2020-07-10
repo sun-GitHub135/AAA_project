@@ -26,8 +26,5 @@ public  class UserController extends CommonController<User> {
         return userService;
     }
 
-    @PostMapping("/add")
-    public ResultData add(User user){
-        return getBaseService().insertDta(user);
-    }
+
 }
