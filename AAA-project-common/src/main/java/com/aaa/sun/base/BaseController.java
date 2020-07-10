@@ -35,6 +35,7 @@ public class BaseController {
 
     /**
      * @Author sun
+     * ????
      * @Description  登录成功，自定义返回消息（重载）
      *              返回数据信息，使用系统信息
      * @Date 17:08 2020/7/8
@@ -78,4 +79,56 @@ public class BaseController {
         return resultData;
     }
     // TODO
+
+    /**
+     * 用户名已存在
+     * 系统消息
+     * @return
+     */
+    protected  ResultData  loginExist(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(USER_EXIST.getCode());
+        resultData.setMsg(USER_EXIST.getMsg());
+        return resultData;
+    }
+
+
+    /**
+     * 用户名不存在
+     * 系统消息
+     * @return
+     */
+    protected ResultData userNotExist(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(USER_NOT_WRONG.getCode());
+        resultData.setMsg(USER_NOT_WRONG.getMsg());
+        return  resultData;
+    }
+
+
+    /**
+     * 密码错误
+     * 系统消息
+     * @return
+     */
+    protected  ResultData passwordWrong(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(PASSWORD_WRONG.getCode());
+        resultData.setMsg(PASSWORD_WRONG.getCode());
+        return  resultData;
+    }
+
+
+    /**
+     * 用户退出异常
+     * 系统消息
+     * @return
+     */
+    protected  ResultData loginWrong(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(LOGOUT_WRONG.getCode());
+        resultData.setMsg(LOGOUT_WRONG.getMsg());
+        return  resultData;
+    }
+
 }
