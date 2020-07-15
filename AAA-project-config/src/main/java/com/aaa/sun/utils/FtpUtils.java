@@ -3,7 +3,7 @@ package com.aaa.sun.utils;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
-import sun.net.ftp.FtpClient;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +49,8 @@ public class FtpUtils {
             // 5.登录ftp服务器
             ftpClient.login(username,password);
             // 6.接受返回的状态码
-            replyCode = ftpClient.getReplyCode();// 如果成功返回230，如果失败则返回503
+            replyCode = ftpClient.getReplyCode();
+            // 如果成功返回230，如果失败则返回503
 // 7.判断
             if (!FTPReply.isPositiveCompletion(replyCode)) {
                 // 连接失败
@@ -63,7 +64,8 @@ public class FtpUtils {
             if (!ftpClient.changeWorkingDirectory(basePath + fileName)){
                 // 该文件夹不存在
                 // 9.创建文件夹
-                String [] dirs = filePath.split("/");//  [2020,07,10]
+                String [] dirs = filePath.split("/");
+                //  [2020,07,10]
                 // 10.把basePath赋值给临时路径
                 // tempPath：/home/ftp/www/
                 tempPath = basePath;

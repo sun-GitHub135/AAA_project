@@ -177,4 +177,40 @@ public class BaseController {
     }
 
     // TODO
+
+    /**
+     * 删除操作返回系统消息
+     * @return
+     */
+    protected  ResultData deleteOperation(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(DELETE_OPERATION.getCode());
+        resultData.setMsg(DELETE_OPERATION.getMsg());
+        return  resultData;
+    }
+
+    /**
+     * 修改操作返回消息
+     * @return
+     */
+    protected  ResultData updateOperation(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(UPDATE_OPERATION.getCode());
+        resultData.setMsg(UPDATE_OPERATION.getMsg());
+        return resultData;
+    }
+
+    /**
+     * 新增返回系统消息
+     * @return
+     */
+    protected  ResultData insertOperation(){
+        ResultData resultData = new ResultData();
+        resultData.setCode(INSERT_OPERATION.getCode());
+        resultData.setMsg(INSERT_OPERATION.getMsg());
+        return  resultData;
+    }
+
+
+
 }
