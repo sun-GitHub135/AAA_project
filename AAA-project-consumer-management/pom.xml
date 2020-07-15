@@ -11,6 +11,11 @@
 
     <artifactId>AAA-project-consumer-management</artifactId>
 
+    <packaging>pom</packaging>
+    <modules>
+        <module>AAA-project-consumer-backup</module>
+    </modules>
+
 
     <dependencies>
         <dependency>

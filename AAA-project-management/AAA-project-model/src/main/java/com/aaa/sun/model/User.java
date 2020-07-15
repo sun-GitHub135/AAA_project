@@ -1,18 +1,48 @@
 package com.aaa.sun.model;
 
-import lombok.Data;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import javax.persistence.Table;
 import java.io.Serializable;
 
-/**
- * @author sun
- * @Company AAA软件教育
- * @date 2020/7/8 19:05
- * @Description
- */
+@Table(name = "t_user")
 @Data
-public class User  implements Serializable {
-    private String id;
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class User implements Serializable {
+    private Long id;
+
     private String username;
+
     private String password;
-}
+
+    private Long deptId;
+
+    private String email;
+
+    private String mobile;
+
+    private String status;
+
+    private String createTime;
+
+    private String modifyTime;
+
+    private String lastLoginTime;
+
+    private String ssex;
+
+    private String description;
+
+    private String avatar;
+
+    private String type;
+
+    private String token;
+
+    }

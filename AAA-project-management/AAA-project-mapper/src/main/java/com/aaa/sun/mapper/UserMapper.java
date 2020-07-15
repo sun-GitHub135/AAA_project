@@ -1,10 +1,19 @@
 package com.aaa.sun.mapper;
 
-/**
- * @author sun
- * @Company AAA软件教育
- * @date 2020/7/8 19:01
- * @Description
- */
-public interface UserMapper {
+import com.aaa.sun.model.User;
+import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
+
+
+public interface UserMapper extends Mapper<User> {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(User record);
+
+    User selectByPrimaryKey(Long id);
+
+    List<User> selectAll();
+
+    int updateByPrimaryKey(User record);
 }
