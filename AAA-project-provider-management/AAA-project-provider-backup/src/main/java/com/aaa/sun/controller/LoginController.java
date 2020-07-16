@@ -6,6 +6,7 @@ import com.aaa.sun.base.ResultData;
 import com.aaa.sun.model.User;
 import com.aaa.sun.service.LoginService;
 import com.aaa.sun.vo.TokenVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,8 @@ import static com.aaa.sun.status.LoginStatus.*;
  */
 @RestController
 public class LoginController extends CommonController<User> {
+
+    @Autowired
     private LoginService loginService;
 
     public BaseService<User> getBaseService() {
