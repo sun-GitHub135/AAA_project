@@ -4,6 +4,7 @@ import com.aaa.sun.base.BaseService;
 import com.aaa.sun.base.CommonController;
 import com.aaa.sun.base.ResultData;
 import com.aaa.sun.model.Dict;
+import com.aaa.sun.model.User;
 import com.aaa.sun.service.DictService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class DictController extends CommonController<Dict> {
      * @return
      */
     @PostMapping("/dictList")
-    public ResultData<Dict>  list(@RequestParam HashMap map){
+    public ResultData<User>  list(@RequestParam HashMap map){
         PageInfo pageInfo = dictService.selectAlls(map);
         if ( null != pageInfo || !("").equals(pageInfo)){
             return super.operationSuccess(pageInfo);
@@ -45,7 +46,6 @@ public class DictController extends CommonController<Dict> {
             return  super.operationFailed("查询失败");
         }
     }
-
     /**
      * 字典新增信息
      * @param map

@@ -1,6 +1,7 @@
 package com.aaa.sun.service;
 
 import com.aaa.sun.base.BaseService;
+import com.aaa.sun.model.LoginLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @Description
  */
 @Service
-public class LoginLogService  extends BaseService {
+public class LoginLogService  extends BaseService<LoginLog> {
 
 
 }

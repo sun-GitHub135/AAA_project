@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author LC
@@ -17,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class TDept implements Serializable {
+public class Dept implements Serializable {
     /**
      * 部门ID
      */
@@ -46,6 +47,11 @@ public class TDept implements Serializable {
      */
 
     private Date modifyTime;
+
+    /**
+     * 下级部门
+     */
+    private List<Dept> subDept;
 
 
 }

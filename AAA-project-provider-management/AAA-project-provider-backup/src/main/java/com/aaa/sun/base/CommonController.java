@@ -156,20 +156,39 @@ public abstract class CommonController<T> extends BaseController {
         return super.operationFailed();
     }
 
+
+
     /**
-     * @Author sun
-     * @Description 查询多条数据
-     * @Date 8:44 2020/7/10
-     * @Param [map]
-     * @return com.aaa.sun.base.ResultData
+     * 查询数据列表
+     * @param map
+     * @return
      */
-    public ResultData selectList(@RequestBody Map map) {
+    public ResultData selectList(@RequestBody Map map){
+        ResultData resultData = new ResultData();
         T instance = getBaseService().newInstance(map);
-        List<T> list = getBaseService().selectList(instance);
-        if (list.size()>0) {
-            return super.operationSuccess();
+        List<T> selectList = getBaseService().selectList(instance);
+        if (null != selectList){
+            return super.operationSuccess(selectList,"查询数据列表成功!");
         }
-        return super.operationFailed();
+        return super.operationFailed("查询数据列表失败!");
+    }
+
+
+
+    /**
+     * 不带条件分页查询
+     * @param map
+     * @return
+     */
+    public ResultData selectListByPage(@RequestBody Map map){
+        Integer pageNo = (Integer) map.get("pageNo");
+        Integer pageSize = (Integer) map.get("pageSize");
+        Object t = map.get("t");
+        PageInfo<T> tPageInfo = getBaseService().selectListByPage((T) t, pageNo, pageSize);
+        if (null != tPageInfo){
+            return super.operationSuccess(tPageInfo,"分页查询数据列表成功!");
+        }
+        return super.operationFailed("分页查询数据列表失败!");
     }
 
 

@@ -31,7 +31,7 @@ public abstract class BaseService<T> {
     private Class<T> cache  = null;
 
     @Autowired
-    Mapper<T> mapper;
+    private Mapper<T> mapper;
 
     protected Mapper getMapper(){
         return mapper;
@@ -109,6 +109,9 @@ public abstract class BaseService<T> {
     public T selectOne(T t){
         return mapper.selectOne(t);
     }
+
+
+
 
 
     /**

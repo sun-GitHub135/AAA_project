@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.sun.mapper.RoleMapper" >
+    <resultMap id="BaseResultMap" type="com.aaa.sun.model.Role" >
+        <id column="ROLE_ID" property="roleId" jdbcType="BIGINT" />
+        <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+        <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="selectAlls" resultType="HashMap" parameterType="HashMap">
+        select * from t_role
+        <where>
+            1 = 1
+            <if test=" roleName != null and roleName != '' ">
+                and roleName like '%${roleName}%'
+            </if>
+        </where>
+    </select>
+</mapper>
